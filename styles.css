@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    height:400px;
+    width:400px;
+    flex-wrap: wrap;
+}
+
+.gridCell {
+    background-color: lightblue;
+}
