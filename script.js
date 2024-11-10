@@ -19,9 +19,13 @@ function createGrid(rows, cols) {
         gridCell.classList.add("gridCell");
         gridCell.style.height = `${cellHeight}px`;
         gridCell.style.width = `${cellWidth}px`;
+        gridCell.style.opacity = 1;
 
         gridCell.addEventListener("mouseenter", () => {
+            // gridCell.style.backgroundColor = generateRandomColor();
             gridCell.style.backgroundColor = "yellow";
+            newOpacity = parseFloat(gridCell.style.opacity) - 0.1;
+            gridCell.style.opacity = Math.max(newOpacity, 0);
         });
 
         container.appendChild(gridCell);
@@ -35,6 +39,11 @@ function changeResolution() {
     } while (!Number.isInteger(grids));
 
     createGrid(grids, grids);
+}
+
+function generateRandomColor() {
+    const hex = Math.floor(Math.random() * 16777215).toString(16);
+    return `#${hex.padStart(6, "0")}`
 }
 
 resolutionBtn.addEventListener("click", function () {
