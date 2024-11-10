@@ -19,19 +19,22 @@ function createGrid(rows, cols) {
         gridCell.classList.add("gridCell");
         gridCell.style.height = `${cellHeight}px`;
         gridCell.style.width = `${cellWidth}px`;
+
+        gridCell.addEventListener("mouseenter", () => {
+            gridCell.style.backgroundColor = "yellow";
+        });
+
         container.appendChild(gridCell);
     }
+
 }
 
 function changeResolution() {
     do {
-        newRows = Number(prompt("Enter number of horizontal grids: "));
-    } while (!Number.isInteger(newRows));
-    do {
-        newCols = Number(prompt("Enter number of vertical grids: "));
-    } while (!Number.isInteger(newCols));
+        grids = Number(prompt("Enter number of grids in square: "));
+    } while (!Number.isInteger(grids));
 
-    createGrid(newRows, newCols);
+    createGrid(grids, grids);
 }
 
 resolutionBtn.addEventListener("click", function () {
